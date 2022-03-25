@@ -9,6 +9,9 @@
 #include <chrono>
 #include <vector>
 #include "input.h"
+#include "MyBagInt.h"
+#include "TemplateMyBag.h"
+#include "ApplicationMyBag.h"
 
 
 using namespace std;
