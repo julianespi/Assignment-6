@@ -21,7 +21,7 @@ int TemplateClassMenuOption()
 
 
 
-void main()
+void TemplateMyBag()
 {
     
    
