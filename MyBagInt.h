@@ -41,6 +41,8 @@ public:
         delete[] array;
     }
 
+    //Precondition: reads array
+    //Postcondition: displays array contents
     void display() const
     {
         cout << endl << "Displaying array: \n";
@@ -50,6 +52,8 @@ public:
         
     }
 
+    //Precondition: reads the contents of array
+    //Postcondition: sorts the conents of the array
     void sortArray()
     {
         cout << endl << "The sorted array is: \n";
@@ -57,6 +61,8 @@ public:
         sort(array, array + size);
     }
 
+    //Precondition: asks the user to input an int
+    //Postcondition: places integer into the array
      void insert()
     {
          int newInt = inputInteger("Enter new integer: ");
@@ -68,6 +74,8 @@ public:
     
     }
 
+    //Precondition: user input choise to clear
+    //Postcondition: clears the array
      void clear()
      {
          size = 0;
