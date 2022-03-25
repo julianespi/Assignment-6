@@ -109,7 +109,7 @@ int nonTemplateMenuOption()
 
 
 
-void main()
+void MyBagInt()
 {
     
    // vector<int> vectorOfInts;
