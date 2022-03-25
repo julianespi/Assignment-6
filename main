@@ -22,7 +22,7 @@ int main()
         switch (mainMenuOption())
         {
         case 0: exit(1); break;
-        case 1: MyBagofInt(); break;
+        case 1: MyBagInt(); break;
         case 2: TemplateMyBag(); break;
         case 3: ApplicationMyBag(); break;
         default: cout << "\t\tERROR - Invalid option. Please re-enter."; break;
