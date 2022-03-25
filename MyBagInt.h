@@ -68,7 +68,7 @@ public:
          int newInt = inputInteger("Enter new integer: ");
          for (int i = 0; i < newInt; i++)
          {
-             
+             array[newInt] = i;
          }
          
     
