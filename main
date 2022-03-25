@@ -1,1 +1,51 @@
+#include <iostream>
+#include <stack>
+#include <iomanip>
+#include <iterator>
+#include <cmath>
+#include <string>
+#include <cstring>
+#include <sstream>
+#include <chrono>
+#include <vector>
+#include "input.h"
 
+
+using namespace std;
+
+int mainMenuOption();
+
+int main()
+{
+    do
+    {
+        switch (mainMenuOption())
+        {
+        case 0: exit(1); break;
+        case 1: MyBagofInt(); break;
+        case 2: TemplateMyBag(); break;
+        case 3: ApplicationMyBag(); break;
+        default: cout << "\t\tERROR - Invalid option. Please re-enter."; break;
+        }
+        cout << "\n";
+        system("pause");
+
+    } while (true);
+}
+
+//Precondition:none
+//PostCondition:displays the main menu
+int mainMenuOption()
+{
+    cout << endl << "Chapter 6: Assignment by Group 2";
+    cout << endl << "==========================================";
+    cout << endl << "1. Non-template MyBag container of int";
+    cout << endl << "2. Template MyBag<double> container";
+    cout << endl << "3. Application using MyBag container";
+    cout << endl << "==========================================";
+    cout << endl << "Exit 0";
+    cout << endl << "==========================================" << endl;
+    int options = inputInteger("Options: ", 0, 3);
+    cout << endl << endl << endl;
+    return options;
+}
