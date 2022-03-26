@@ -41,19 +41,32 @@ public:
         delete[] array;
     }
 
-    //Precondition: reads array
-    //Postcondition: displays array contents
-    void display() const
+    void display()
     {
         cout << endl << "Displaying array: \n";
-
+        
         for (int i = 0; i < size; i++)
             cout << array[i] << '\n';
         
+        
     }
 
-    //Precondition: reads the contents of array
-    //Postcondition: sorts the conents of the array
+
+    void insert()
+    {
+       /* int newInt = inputInteger("Enter new integer: ");
+        for (int i = 0; i < size; i++) {
+            newInt = array[i++];
+        }*/
+        
+            int list[] = { inputInteger("Enter new integer: ") };
+            MyBag test1(list, 1);
+        
+        
+    }
+
+    
+
     void sortArray()
     {
         cout << endl << "The sorted array is: \n";
@@ -61,21 +74,8 @@ public:
         sort(array, array + size);
     }
 
-    //Precondition: asks the user to input an int
-    //Postcondition: places integer into the array
-     void insert()
-    {
-         int newInt = inputInteger("Enter new integer: ");
-         for (int i = 0; i < newInt; i++)
-         {
-             array[newInt] = i;
-         }
-         
     
-    }
 
-    //Precondition: user input choise to clear
-    //Postcondition: clears the array
      void clear()
      {
          size = 0;
@@ -109,12 +109,15 @@ int nonTemplateMenuOption()
 
 
 
-void MyBagInt()
+void main()
 {
     
-   // vector<int> vectorOfInts;
+   
     MyBag h;
     
+    
+   
+
     do
     {
         switch (nonTemplateMenuOption())
