@@ -20,18 +20,19 @@ class MyBag {
 private:
     int* array;
     int size;
-    
+    int index;
 public:
     
     MyBag()
     {
-        array = nullptr;
+        array = new int[10];
         size = 0;
+        index = 0;
     }
     MyBag(int* a, int newSize)
     {
         size = newSize;
-        array = new int[size];
+        array = new int[10];
 
         for (int i = 0; i < size; i++)
             array[i] = a[i];
@@ -41,41 +42,70 @@ public:
         delete[] array;
     }
 
+    //Precondition: user input to display array
+    //Postcondition: displays current array setup
+
     void display()
     {
         cout << endl << "Displaying array: \n";
         
         for (int i = 0; i < size; i++)
-            cout << array[i] << '\n';
+            cout <<  array[i] << '\n';
         
         
     }
 
-
+    //Precondition: user input to enter new integer into array
+    //Postcondition: places an integer, then adds to the dynamic array size
     void insert()
+    { 
+            int num = { inputInteger("Enter new integer into array: ") };
+            array[index] = num;
+            index++;
+            size++;         
+    }
+
+    //Precondition: user input to remove a certain array
+    //Postcondition: removes the array, and subtracts to the dynamic array
+    void remove()
     {
-       /* int newInt = inputInteger("Enter new integer: ");
+       
+        int remove = { inputInteger("Enter position to remove: ") };
+        
+        for (int i = remove; i < size - 1; i++)
+        {
+            array[i] = array[i+1];
+        }
+        array[index - 1] = {};
+        size--;
+    }
+    //Precondition: user input to search an integer 
+    //Postcondition: displays the integer found at specific index
+    void search()
+    {
+        int SearchArray = inputInteger("Search: ");
         for (int i = 0; i < size; i++) {
-            newInt = array[i++];
-        }*/
-        
-            int list[] = { inputInteger("Enter new integer: ") };
-            MyBag test1(list, 1);
-        
+            if (array[i] == SearchArray) {
+                cout << "Element found at index " << i;
+            }
+        }
         
     }
 
-    
-
+    //Precondition: userinput to sort current array
+    //Postcondition: sorts array then displays sorted array
     void sortArray()
     {
         cout << endl << "The sorted array is: \n";
 
         sort(array, array + size);
+        for (int i = 0; i < size; i++)
+            cout << array[i] << '\n';
     }
 
     
-
+    //Precondition: user input to clear the array
+    //Postcondition: clears the array
      void clear()
      {
          size = 0;
@@ -122,11 +152,11 @@ void main()
     {
         switch (nonTemplateMenuOption())
         {
-        case 0: return; break;
+               case 0: return; break;
                case 1: h.clear(); break;
-               case 2:  h.insert(); break;
-             //  case 3: search(); break;
-             //  case 4: remove(); break;
+               case 2: h.insert(); break;
+               case 3: h.search(); break;
+               case 4: h.remove(); break;
                case 5: h.sortArray(); break;
                case 6: h.display(); break;
         default: cout << "\t\tERROR - Invalid option. Please re-enter."; break;
