@@ -16,12 +16,16 @@ public:
         for (int i = 0; i < ary.size(); i++)
             ary[i] = a[i];
     }
-
+    
+    //precondition: none
+    //postcondition: gets size of array
     int getSize()
     {
         return ary.size();
     }
-
+    
+    //precondition: none
+    //postcondition: gets element in position i of array
     T getelement(int i)
     {
         return ary[i];
