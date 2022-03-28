@@ -82,9 +82,11 @@ public:
     //Postcondition: displays the integer found at specific index
     void search()
     {
-        int SearchArray = inputInteger("Search: ");
-        for (int i = 0; i < size; i++) {
-            if (array[i] == SearchArray) {
+        T SearchArray = inputDouble("Search: ");
+        for (int i = 0; i < size; i++) 
+        {
+            if (array[i] == SearchArray) 
+            {
                 cout << "Element found at index " << i;
             }
         }
@@ -115,8 +117,6 @@ public:
 
 };
 
-//precondition: none
-//postcondition: displays the Double Template Class MyBag menu
 int TemplateClassMenuOption()
 
 {
@@ -139,8 +139,7 @@ int TemplateClassMenuOption()
 
 
 
-//precondition: none
-//postcondition: chooses menu for the Double Template Class MyBag menu
+
 void TemplateMyBag()
 {
     MyBag<double> h;
