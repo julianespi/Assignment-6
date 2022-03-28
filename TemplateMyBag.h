@@ -117,6 +117,8 @@ public:
 
 };
 
+//precondition: none
+//postcondition: displays the Double Template Class MyBag Menu
 int TemplateClassMenuOption()
 
 {
@@ -139,7 +141,8 @@ int TemplateClassMenuOption()
 
 
 
-
+//precondition: none
+//postcondition: user chooses the Double Template Class MyBag Menu
 void TemplateMyBag()
 {
     MyBag<double> h;
