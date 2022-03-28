@@ -84,12 +84,19 @@ public:
     void search()
     {
         int SearchArray = inputInteger("Search: ");
-        for (int i = 0; i < size; i++) {
-            if (array[i] == SearchArray) {
-                cout << "Element found at index " << i;
+        bool found = false;
+        for (int i = 0; i < size; i++) 
+        {
+            if (array[i] == SearchArray) 
+            {
+                found = true;
+                cout << SearchArray << " found at index " << i << endl;
             }
         }
-        
+        if (found == false)
+        {
+            cout << SearchArray << " was not found in the array." << endl;
+        }
     }
 
     //Precondition: userinput to sort current array
@@ -116,6 +123,8 @@ public:
 
 };
 
+//precondition: none
+//postcondition: displays menu for integer bag class
 int nonTemplateMenuOption()
 
 {
@@ -138,7 +147,8 @@ int nonTemplateMenuOption()
 
 
 
-
+//precondition: none
+//postcondition: chooses menu for integer bag class
 void main()
 {
     
