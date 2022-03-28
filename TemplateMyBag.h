@@ -1,44 +1,30 @@
-#include <iostream>
-#include <stack>
-#include <iomanip>
-#include <iterator>
-#include <cmath>
-#include <string>
-#include <list>
-#include <cstring>
-#include <sstream>
-#include <chrono>
-#include <vector>
-#include <fstream>
-#include "input.h"
-
-using namespace std;
-
+#pragma once
 
 template <class T>
 class MyBag {
 private:
-    T* array;
-    int size;
-    int index;
+    vector<T> ary;
 public:
+    
     MyBag()
     {
-        array = new T[10];
-        size = 0;
-        index = 0;
+        ary.clear();
     }
-    MyBag(T* a, int newSize)
-    {
-        size = newSize;
-        array = new T[10];
 
-        for (int i = 0; i < size; i++)
-            array[i] = a[i];
-    }
-    ~MyBag()
+    MyBag(T* a)
     {
-        delete[] array;
+        for (int i = 0; i < ary.size(); i++)
+            ary[i] = a[i];
+    }
+
+    int getSize()
+    {
+        return ary.size();
+    }
+
+    T getelement(int i)
+    {
+        return ary[i];
     }
 
     //Precondition: user input to display array
@@ -48,49 +34,39 @@ public:
     {
         cout << endl << "Displaying array: \n";
 
-        for (int i = 0; i < size; i++)
-            cout << array[i] << '\n';
-
-
+        for (int i = 0; i < ary.size(); i++)
+            cout << ary[i] << '\n';
     }
 
     //Precondition: user input to enter new integer into array
     //Postcondition: places an integer, then adds to the dynamic array size
-    void insert()
+    void insertElement(T num)
     {
-        T num = { inputDouble("Enter new integer into array: ") };
-        array[index] = num;
-        index++;
-        size++;
+        ary.push_back(num);
     }
 
     //Precondition: user input to remove a certain array
     //Postcondition: removes the array, and subtracts to the dynamic array
-    void remove()
+    void removeElement(int index)
     {
-
-        int remove = { inputInteger("Enter position to remove: ") };
-
-        for (int i = remove; i < size - 1; i++)
-        {
-            array[i] = array[i + 1];
-        }
-        array[index - 1] = {};
-        size--;
+        ary.erase(ary.begin() + index);
     }
     //Precondition: user input to search an integer 
     //Postcondition: displays the integer found at specific index
-    void search()
+    void searchElement(T SearchArray)
     {
-        T SearchArray = inputDouble("Search: ");
-        for (int i = 0; i < size; i++) 
+        bool found = false;
+        for (int i = 0; i < ary.size(); i++)
         {
-            if (array[i] == SearchArray) 
+            if (ary[i] == SearchArray)
             {
+                found = true;
                 cout << "Element found at index " << i;
             }
         }
 
+        if (found == false)
+            cout << SearchArray << " was not found in Mybag." << endl;
     }
 
     //Precondition: user input to sort current array
@@ -99,22 +75,19 @@ public:
     {
         cout << endl << "The sorted array is: \n";
 
-        sort(array, array + size);
-        for (int i = 0; i < size; i++)
-            cout << array[i] << '\n';
+        sort(ary.begin(), ary.end());
+        for (int i = 0; i < ary.size(); i++)
+            cout << ary[i] << '\n';
     }
 
 
     //Precondition: user input to clear the array
     //Postcondition: clears the array
-    void clear()
+    void clearAry()
     {
-        size = 0;
+        ary.clear();
         cout << endl << "The array has been cleared. \n";
     }
-
-
-
 };
 
 //precondition: none
@@ -151,10 +124,10 @@ void TemplateMyBag()
         switch (TemplateClassMenuOption())
         {
         case 0: return; break;
-        case 1: h.clear(); break;
-        case 2: h.insert(); break;
-        case 3: h.search(); break;
-        case 4: h.remove(); break;
+        case 1: h.clearAry(); break;
+        case 2: h.insertElement(inputDouble("Enter a double: ")); break;
+        case 3: h.searchElement(inputInteger("Enter a value you wish to find: ", 0, h.getSize())); break;
+        case 4: h.removeElement(inputInteger("Enter a index you wish to delete at: ", 0, h.getSize())); break;
         case 5: h.sortArray(); break;
         case 6: h.display(); break;
         default: cout << "\t\tERROR - Invalid option. Please re-enter."; break;
@@ -164,4 +137,4 @@ void TemplateMyBag()
 
     } while (true);
 
-}
+};
