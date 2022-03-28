@@ -61,7 +61,7 @@ public:
             if (ary[i] == SearchArray)
             {
                 found = true;
-                cout << SearchArray << " found at index " << i;
+                cout << SearchArray << " found at index " << i << endl;
             }
         }
 
