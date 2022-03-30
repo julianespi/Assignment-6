@@ -76,7 +76,7 @@ public:
         {
             array[i] = array[i+1];
         }
-        array[index - 1] = {};
+        indx--;
         size--;
     }
     //Precondition: user input to search an integer 
