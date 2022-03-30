@@ -50,7 +50,7 @@ public:
         cout << endl << "Displaying array: \n";
         
         for (int i = 0; i < size; i++)
-            cout <<  array[i] << '\n';
+            cout << "[" << i << "] - " << array[i] << '\n';
         
         
     }
