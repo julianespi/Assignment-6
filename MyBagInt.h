@@ -76,7 +76,7 @@ public:
         {
             array[i] = array[i+1];
         }
-        indx--;
+        index--;
         size--;
     }
     //Precondition: user input to search an integer 
@@ -90,7 +90,7 @@ public:
             if (array[i] == SearchArray) 
             {
                 found = true;
-                cout << SearchArray << " found at index " << i << endl;
+                cout << "Integer found at index [" << i << "]\n";
             }
         }
         if (found == false)
