@@ -149,7 +149,7 @@ int nonTemplateMenuOption()
 
 //precondition: none
 //postcondition: chooses menu for integer bag class
-void main()
+void MyBagInt()
 {
     
    
