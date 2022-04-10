@@ -1,93 +1,86 @@
-#include <iostream>
-#include <stack>
-#include <iomanip>
-#include <iterator>
-#include <cmath>
-#include <string>
-#include <list>
-#include <cstring>
-#include <sstream>
-#include <chrono>
-#include <vector>
-#include <fstream>
-#include "input.h"
-
-using namespace std;
-
-
-
-class MyBag {
+class MyBagInt {
 private:
-    int* array;
-    int size;
-    int index;
+    vector<int> array;
 public:
-    
-    MyBag()
-    {
-        array = new int[10];
-        size = 0;
-        index = 0;
-    }
-    MyBag(int* a, int newSize)
-    {
-        size = newSize;
-        array = new int[10];
 
-        for (int i = 0; i < size; i++)
-            array[i] = a[i];
-    }
-    ~MyBag()
+    MyBagInt()
     {
-        delete[] array;
+        array.clear();
+    }
+
+    MyBagInt(int* a)
+    {
+
+        for (int i = 0; i < array.size(); i++)
+            array[i] = a[i];
     }
 
     //Precondition: user input to display array
     //Postcondition: displays current array setup
-
     void display()
     {
+        if (array.size() == 0)
+        {
+            cout << "My Bag is Empty." << endl;
+            return;
+        }
         cout << endl << "Displaying array: \n";
-        
-        for (int i = 0; i < size; i++)
+
+        for (int i = 0; i < array.size(); i++)
             cout << "[" << i << "] - " << array[i] << '\n';
-        
-        
+
+
     }
 
     //Precondition: user input to enter new integer into array
     //Postcondition: places an integer, then adds to the dynamic array size
     void insert()
-    { 
-            int num = { inputInteger("Enter new integer into array: ") };
-            array[index] = num;
-            index++;
-            size++;         
+    {
+        int num = { inputInteger("Enter new integer into array: ") };
+        array.push_back(num);
     }
 
-    //Precondition: user input to remove a certain array
+    //Precondition: user input to remove at certain index
     //Postcondition: removes the array, and subtracts to the dynamic array
     void remove()
     {
-       
-        int remove = { inputInteger("Enter position to remove: ") };
-        
-        for (int i = remove; i < size - 1; i++)
+        if (array.size() == 0)
         {
-            array[i] = array[i+1];
+            cout << "My Bag is Empty." << endl;
+            return;
         }
-        index--;
-        size--;
+
+        int value = inputInteger("Enter a Value you want to remove: ");
+
+        bool found = false;
+        for (int i = 0; i < array.size(); i++)
+        {
+            if (array[i] == value)
+            {
+                found = true;
+                cout << "Element " << array[i] << " erased at index " << i << endl;
+                array.erase(array.begin() + i);
+            }
+        }
+
+        if (found == false)
+            cout << value << " was not found in Mybag." << endl;
     }
+
     //Precondition: user input to search an integer 
     //Postcondition: displays the integer found at specific index
     void search()
     {
+        if (array.size() == 0)
+        {
+            cout << "My Bag is Empty." << endl;
+            return;
+        }
         int SearchArray = inputInteger("Search: ");
         bool found = false;
-        for (int i = 0; i < size; i++) 
+        for (int i = 0; i < array.size(); i++)
         {
-            if (array[i] == SearchArray) 
+            if (array[i] == SearchArray)
             {
                 found = true;
                 cout << "Integer found at index [" << i << "]\n";
@@ -103,24 +96,24 @@ public:
     //Postcondition: sorts array then displays sorted array
     void sortArray()
     {
+        if (array.size() == 0)
+        {
+            cout << "My Bag is Empty." << endl;
+            return;
+        }
         cout << endl << "The sorted array is: \n";
 
-        sort(array, array + size);
-        for (int i = 0; i < size; i++)
-           cout << "[" << i << "] - " << array[i] << '\n';
+        sort(array.begin(), array.end());
+        for (int i = 0; i < array.size(); i++)
+            cout << "[" << i << "] - " << array[i] << '\n';
     }
 
-    
     //Precondition: user input to clear the array
     //Postcondition: clears the array
-     void clear()
-     {
-         size = 0;
-         cout << endl << "The array has been cleared. \n";
+    void clear()
+    {
+        cout << endl << "The array has been cleared. \n";
     }
-
-     
-
 };
 
 //precondition: none
