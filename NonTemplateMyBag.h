@@ -17,7 +17,7 @@ public:
 
     //Precondition: user input to display array
     //Postcondition: displays current array setup
-    void display()
+    void display const()
     {
         if (array.size() == 0)
         {
@@ -69,7 +69,7 @@ public:
 
     //Precondition: user input to search an integer 
     //Postcondition: displays the integer found at specific index
-    void search()
+    void search const()
     {
         if (array.size() == 0)
         {
