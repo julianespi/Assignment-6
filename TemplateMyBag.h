@@ -14,7 +14,7 @@ public:
     MyBag(T* a)
     {
         for (int i = 0; i < array.size(); i++)
-            ary[i] = a[i];
+            array[i] = a[i];
     }
     
     //precondition: none
