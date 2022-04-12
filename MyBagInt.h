@@ -1,14 +1,14 @@
-class MyBagInt {
+class NonTemplateMyBag {
 private:
     vector<int> array;
 public:
 
-    MyBagInt()
+    NonTemplateMyBag()
     {
         array.clear();
     }
 
-    MyBagInt(int* a)
+    NonTemplateMyBag(int* a)
     {
 
         for (int i = 0; i < array.size(); i++)
@@ -142,7 +142,7 @@ int nonTemplateMenuOption()
 
 //precondition: none
 //postcondition: chooses menu for integer bag class
-void MyBagInt()
+void NonTemplateMyBag()
 {
     
    
