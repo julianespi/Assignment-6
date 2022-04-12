@@ -120,7 +120,7 @@ int TemplateClassMenuOption()
 
 //precondition: none
 //postcondition: user chooses the Double Template Class MyBag Menu
-void TemplateMyBagMenu()
+void TemplateMyBag()
 {
     MyBag<double> h;
     do
