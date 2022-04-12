@@ -3,17 +3,17 @@
 template <class T>
 class MyBag {
 private:
-    vector<T> ary;
+    vector<T> array;
 public:
     
     MyBag()
     {
-        ary.clear();
+        array.clear();
     }
 
     MyBag(T* a)
     {
-        for (int i = 0; i < ary.size(); i++)
+        for (int i = 0; i < array.size(); i++)
             ary[i] = a[i];
     }
     
@@ -21,14 +21,14 @@ public:
     //postcondition: gets size of array
     int getSize()
     {
-        return ary.size();
+        return array.size();
     }
     
     //precondition: none
     //postcondition: gets element in position i of array
     T getelement(int i)
     {
-        return ary[i];
+        return array[i];
     }
 
     //Precondition: user input to display array
@@ -38,31 +38,31 @@ public:
     {
         cout << endl << "Displaying array: \n";
 
-        for (int i = 0; i < ary.size(); i++)
-            cout << ary[i] << '\n';
+        for (int i = 0; i < array.size(); i++)
+            cout << array[i] << '\n';
     }
 
     //Precondition: user input to enter new integer into array
     //Postcondition: places an integer, then adds to the dynamic array size
     void insertElement(T num)
     {
-        ary.push_back(num);
+        array.push_back(num);
     }
 
     //Precondition: user input to remove a certain array
     //Postcondition: removes the array, and subtracts to the dynamic array
     void removeElement(int index)
     {
-        ary.erase(ary.begin() + index);
+        array.erase(array.begin() + index);
     }
     //Precondition: user input to search an integer 
     //Postcondition: displays the integer found at specific index
     void searchElement(T SearchArray)
     {
         bool found = false;
-        for (int i = 0; i < ary.size(); i++)
+        for (int i = 0; i < array.size(); i++)
         {
-            if (ary[i] == SearchArray)
+            if (array[i] == SearchArray)
             {
                 found = true;
                 cout << SearchArray << " found at index " << i << endl;
@@ -79,17 +79,17 @@ public:
     {
         cout << endl << "The sorted array is: \n";
 
-        sort(ary.begin(), ary.end());
-        for (int i = 0; i < ary.size(); i++)
-            cout << ary[i] << '\n';
+        sort(array.begin(), array.end());
+        for (int i = 0; i < array.size(); i++)
+            cout << array[i] << '\n';
     }
 
 
     //Precondition: user input to clear the array
     //Postcondition: clears the array
-    void clearAry()
+    void clearArray()
     {
-        ary.clear();
+        array.clear();
         cout << endl << "The array has been cleared. \n";
     }
 };
@@ -120,7 +120,7 @@ int TemplateClassMenuOption()
 
 //precondition: none
 //postcondition: user chooses the Double Template Class MyBag Menu
-void TemplateMyBag()
+void TemplateMyBagMenu()
 {
     MyBag<double> h;
     do
@@ -128,7 +128,7 @@ void TemplateMyBag()
         switch (TemplateClassMenuOption())
         {
         case 0: return; break;
-        case 1: h.clearAry(); break;
+        case 1: h.clearArray(); break;
         case 2: h.insertElement(inputDouble("Enter a double: ")); break;
         case 3: h.searchElement(inputInteger("Enter a value you wish to find: ", 0, h.getSize())); break;
         case 4: h.removeElement(inputInteger("Enter a index you wish to delete at: ", 0, h.getSize())); break;
