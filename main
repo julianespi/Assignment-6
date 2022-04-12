@@ -9,7 +9,7 @@
 #include <chrono>
 #include <vector>
 #include "input.h"
-#include "MyBagInt.h"
+#include "NonTemplateMyBag.h"
 #include "TemplateMyBag.h"
 #include "ApplicationMyBag.h"
 
@@ -25,7 +25,7 @@ int main()
         switch (mainMenuOption())
         {
         case 0: exit(1); break;
-        case 1: MyBagInt(); break;
+        case 1: NonTemplateMyBag(); break;
         case 2: TemplateMyBag(); break;
         case 3: ApplicationMyBag(); break;
         default: cout << "\t\tERROR - Invalid option. Please re-enter."; break;
