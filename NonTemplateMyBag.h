@@ -1,23 +1,37 @@
-class NonTemplateMyBag {
+class nonTemplateMyBag {
 private:
     vector<int> array;
 public:
 
-    NonTemplateMyBag()
+    nonTemplateMyBag()
     {
         array.clear();
     }
 
-    NonTemplateMyBag(int* a)
+    nonTemplateMyBag(int* a)
     {
 
         for (int i = 0; i < array.size(); i++)
             array[i] = a[i];
     }
 
+    //Precondition: none
+    //Postcondition: returns the size of the array
+    const int getSize()
+    {
+        return  array.size();
+    }
+
+    //Precondition: an int to serve as an index
+//Postcondition: returns an elemment 
+    const int getelement(int i)
+    {
+        return  array[i];
+    }
+
     //Precondition: user input to display array
     //Postcondition: displays current array setup
-    void display const()
+    const void display()
     {
         if (array.size() == 0)
         {
@@ -40,9 +54,16 @@ public:
         array.push_back(num);
     }
 
+    //Precondition: user input to remove a certain array
+    //Postcondition: removes the array, and subtracts to the dynamic array
+    void removeElementAtIndex(int index)
+    {
+        array.erase(array.begin() + index);
+    }
+
     //Precondition: user input to remove at certain index
     //Postcondition: removes the array, and subtracts to the dynamic array
-    void remove()
+    void removeElementAtValue()
     {
         if (array.size() == 0)
         {
@@ -69,7 +90,7 @@ public:
 
     //Precondition: user input to search an integer 
     //Postcondition: displays the integer found at specific index
-    void search const()
+    const void search()
     {
         if (array.size() == 0)
         {
@@ -112,14 +133,21 @@ public:
     //Postcondition: clears the array
     void clear()
     {
+        array.clear();
         cout << endl << "The array has been cleared. \n";
+    }
+
+    //Precondition: none
+    //Postcondition: clears the array
+    void creationClearArray()
+    {
+        array.clear();
     }
 };
 
 //precondition: none
 //postcondition: displays menu for integer bag class
 int nonTemplateMenuOption()
-
 {
     cout << endl << "1> Non-template MyBag of integers";
     cout << endl << "==========================================";
@@ -129,7 +157,6 @@ int nonTemplateMenuOption()
     cout << endl << "4 > remove";
     cout << endl << "5 > sort";
     cout << endl << "6 > display";
-
     cout << endl << "==========================================";
     cout << endl << "0. Exit";
     cout << endl << "==========================================" << endl;
@@ -138,30 +165,22 @@ int nonTemplateMenuOption()
     return options;
 }
 
-
-
 //precondition: none
 //postcondition: chooses menu for integer bag class
-void NonTemplateMyBag()
+void MyBagIntFunction()
 {
-    
-   
-    MyBag h;
-    
-    
-   
-
+    nonTemplateMyBag h;
     do
     {
         switch (nonTemplateMenuOption())
         {
-               case 0: return; break;
-               case 1: h.clear(); break;
-               case 2: h.insert(); break;
-               case 3: h.search(); break;
-               case 4: h.remove(); break;
-               case 5: h.sortArray(); break;
-               case 6: h.display(); break;
+        case 0: return; break;
+        case 1: h.clear(); break;
+        case 2: h.insert(); break;
+        case 3: h.search(); break;
+        case 4: h.removeElementAtValue(); break;
+        case 5: h.sortArray(); break;
+        case 6: h.display(); break;
         default: cout << "\t\tERROR - Invalid option. Please re-enter."; break;
         }
         cout << "\n";
