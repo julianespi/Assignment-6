@@ -34,7 +34,7 @@ public:
     //Precondition: user input to display array
     //Postcondition: displays current array setup
 
-    void display()
+    void display const()
     {
         cout << endl << "Displaying array: \n";
 
@@ -57,7 +57,7 @@ public:
     }
     //Precondition: user input to search an integer 
     //Postcondition: displays the integer found at specific index
-    void searchElement(T SearchArray)
+    void searchElement const(T SearchArray)
     {
         bool found = false;
         for (int i = 0; i < array.size(); i++)
